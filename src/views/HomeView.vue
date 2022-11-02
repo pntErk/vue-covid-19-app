@@ -1,18 +1,36 @@
 <script setup>
-import api from "@/Api";
-import ICountUp from "vue-countup-v2";
+import axios from "axios";
+import DataTitle from "../components/DataTitle.vue";
 </script>
 
 <template>
   <div class="home">
-    <h3 class="overall_cases"><ICountUp :endVal="parseInt(totalcases)" /></h3>
-    <h5 class="overall_cases_title">Total Cases</h5>
+    <DataTitle :totalcases="totalcases" />
   </div>
 </template>
 
 <script>
 export default {
   name: "HomeView",
-  components: { ICountUp },
+  components: { DataTitle },
+  data() {
+    return {
+      delay: 1000,
+      options: {
+        useEasing: true,
+        useGrouping: true,
+        separator: ",",
+        decimal: ".",
+        prefix: "",
+        suffix: "",
+      },
+      totalcases: 0,
+    };
+  },
+  mounted() {
+    axios
+      .get("https://disease.sh/v3/covid-19/all?yesterday=true&allowNull=true")
+      .then((response) => (this.totalcases = response.data.cases));
+  },
 };
 </script>
