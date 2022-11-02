@@ -1,32 +1,18 @@
 <script setup>
-
+import api from "@/Api";
+import ICountUp from "vue-countup-v2";
 </script>
 
 <template>
-  <div class="home">Hello World</div>
+  <div class="home">
+    <h3 class="overall_cases"><ICountUp :endVal="parseInt(totalcases)" /></h3>
+    <h5 class="overall_cases_title">Total Cases</h5>
+  </div>
 </template>
 
 <script>
 export default {
   name: "HomeView",
-  components: {},
-  data(){
-    return {
-      loading: true,
-      title: 'cases',
-      
-    }
-  },
-  methods: {
-    async fetchCovidData() {
-      const res = await fetch("https://disease.sh/v3/covid-19/all");
-      const data = await res.json();
-      return data;
-    },
-  },
-  async created() {
-    const data = this.fetchCovidData()
-    console.log(data)
-  },
+  components: { ICountUp },
 };
 </script>
