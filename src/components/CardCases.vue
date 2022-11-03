@@ -3,22 +3,24 @@
     class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5"
   >
     <!--Card 1-->
-    <div class="rounded overflow-hidden shadow-lg bg-white">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Active</div>
-        <p class="text-gray-700 text-base">
-          <vue3-autocounter
-            ref="counter"
-            :startAmount="0"
-            :endAmount="active"
-            :duration="1"
-            separator=","
-          />
-        </p>
+    <div class="card-one ">
+      <div class="rounded-xl overflow-hidden shadow-lg bg-white">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">Active</div>
+          <p class="text-gray-700 text-base">
+            <vue3-autocounter
+              ref="counter"
+              :startAmount="0"
+              :endAmount="active"
+              :duration="1"
+              separator=","
+            />
+          </p>
+        </div>
       </div>
     </div>
     <!--Card 2-->
-    <div class="rounded overflow-hidden shadow-lg bg-white">
+    <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Critical</div>
         <p class="text-gray-700 text-base">
@@ -34,7 +36,7 @@
     </div>
 
     <!--Card 3-->
-    <div class="rounded overflow-hidden shadow-lg bg-white">
+    <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Recovered</div>
         <p class="text-gray-700 text-base">
@@ -50,7 +52,7 @@
     </div>
 
     <!--Card 4-->
-    <div class="rounded overflow-hidden shadow-lg bg-white">
+    <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Deaths</div>
         <p class="text-gray-700 text-base">
@@ -66,6 +68,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Vue3autocounter from "vue3-autocounter";
 export default {
@@ -74,4 +77,4 @@ export default {
   props: ["active", "critical", "deaths", "recovered"],
 };
 </script>
-<style lang=""></style>
+
