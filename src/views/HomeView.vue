@@ -7,7 +7,7 @@ import ChartCases from "../components/ChartCases.vue";
 </script>
 
 <template class="bg-gray">
-  <div class="home">
+  <div class="home py-10">
     <DataTitle :totalcases="totalcases" />
     <CardCases
       :active="active"
