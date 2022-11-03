@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>
+  <div class="">
+    <p >
       Population:
       <vue3-autocounter
         ref="counter"
@@ -10,7 +10,7 @@
         separator=","
       />
     </p>
-    <p>
+    <p class="pb-3">
       Affected Countries:
       <vue3-autocounter
         ref="counter"
