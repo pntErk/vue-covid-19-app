@@ -1,6 +1,26 @@
 <template>
   <div>
-     <div class="overflow-x-auto relative shadow-md sm:rounded-lg bg-white">
+    <p>
+      Population:
+      <vue3-autocounter
+        ref="counter"
+        :startAmount="0"
+        :endAmount="population"
+        :duration="1"
+        separator=","
+      />
+    </p>
+    <p>
+      Affected Countries:
+      <vue3-autocounter
+        ref="counter"
+        :startAmount="0"
+        :endAmount="affectedCountries"
+        :duration="1"
+        separator=","
+      />
+    </p>
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg bg-white">
       <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
@@ -72,8 +92,11 @@
   </div>
 </template>
 <script>
+import Vue3autocounter from "vue3-autocounter";
 export default {
   name: "TableCases",
+  components: { "vue3-autocounter": Vue3autocounter },
+  props: ["population", "affectedCountries"],
 };
 </script>
 <style></style>

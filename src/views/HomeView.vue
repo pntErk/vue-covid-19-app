@@ -15,7 +15,7 @@ import ChartCases from "../components/ChartCases.vue";
       :recovered="recovered"
       :deaths="deaths"
     />
-    <TableCases />
+    <TableCases :population="population" :affectedCountries="affectedCountries"/>
     <ChartCases />
   </div>
 </template>
@@ -41,6 +41,8 @@ export default {
       critical: 0,
       recovered: 0,
       deaths: 0,
+      population: 0,
+      affectedCountries: 0,
     };
   },
   mounted() {
@@ -52,7 +54,12 @@ export default {
         this.critical = response.data.critical;
         this.recovered = response.data.recovered;
         this.deaths = response.data.deaths;
+        this.population = response.data.population;
+        this.affectedCountries = response.data.affectedCountries;
       });
+    // axios
+    //   .get("https://disease.sh/v3/covid-19/countries")
+    //   .then((response) => (this.data = response.data));
   },
 };
 </script>
