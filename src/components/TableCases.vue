@@ -20,7 +20,7 @@
         separator=","
       />
     </p>
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2 h-screen">
       <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
