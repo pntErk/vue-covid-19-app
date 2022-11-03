@@ -20,7 +20,7 @@
         separator=","
       />
     </p>
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2 h-screen">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2 h-96">
       <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="country in countries" :key="country.countryInfo._id">
+          <tr v-for="country in countries" :key="country.iso2">
             <td class="py-3 px-6">
               <div class="flex space-x-5 text">
                 <div>
