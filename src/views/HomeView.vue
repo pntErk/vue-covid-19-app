@@ -1,18 +1,20 @@
 <script setup>
 import axios from "axios";
 import DataTitle from "../components/DataTitle.vue";
+import CardCases from "../components/CardCases.vue";
 </script>
 
 <template>
   <div class="home">
     <DataTitle :totalcases="totalcases" />
+    <CardCases :active="active" :critical="critical" :recovered="recovered" :deaths="deaths" />
   </div>
 </template>
 
 <script>
 export default {
   name: "HomeView",
-  components: { DataTitle },
+  components: { DataTitle, CardCases },
   data() {
     return {
       delay: 1000,
@@ -25,6 +27,10 @@ export default {
         suffix: "",
       },
       totalcases: 0,
+      active: 1,
+      critical: 0,
+      recovered: 0,
+      deaths: 0,
     };
   },
   mounted() {
