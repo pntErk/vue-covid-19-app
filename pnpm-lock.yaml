@@ -6,21 +6,31 @@ specifiers:
   '@vue/eslint-config-prettier': ^7.0.0
   autoprefixer: ^10.4.13
   axios: ^1.1.3
+  chart.js: ^3.9.1
   eslint: ^8.22.0
   eslint-plugin-vue: ^9.3.0
+  lodash: ^4.17.21
   postcss: ^8.4.18
   prettier: ^2.7.1
   tailwindcss: ^3.2.1
   vite: ^3.1.8
   vue: ^3.2.41
   vue-axios: ^3.5.1
+  vue-chart-3: ^3.1.8
+  vue-chartjs: ^4.1.2
+  vue-lodash: ^2.1.2
   vue-router: ^4.1.5
   vue3-autocounter: ^1.0.6
 
 dependencies:
   axios: 1.1.3
+  chart.js: 3.9.1
+  lodash: 4.17.21
   vue: 3.2.41
   vue-axios: 3.5.1_axios@1.1.3+vue@3.2.41
+  vue-chart-3: 3.1.8_chart.js@3.9.1+vue@3.2.41
+  vue-chartjs: 4.1.2_chart.js@3.9.1+vue@3.2.41
+  vue-lodash: 2.1.2_vue@3.2.41
   vue-router: 4.1.6_vue@3.2.41
   vue3-autocounter: 1.0.6_vue@3.2.41
 
@@ -401,6 +411,10 @@ packages:
       supports-color: 7.2.0
     dev: true
 
+  /chart.js/3.9.1:
+    resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+    dev: false
+
   /chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
@@ -455,6 +469,10 @@ packages:
 
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -1147,13 +1165,16 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
@@ -1651,6 +1672,30 @@ packages:
       vue: 3.2.41
     dev: false
 
+  /vue-chart-3/3.1.8_chart.js@3.9.1+vue@3.2.41:
+    resolution: {integrity: sha512-zX5ajjQi/PocEqLETlej3vp92q/tnI/Fvu2RVb++Kap8qOrXu6PXCpodi73BFrWzEGZIAnqoUxC3OIkRWD657g==}
+    peerDependencies:
+      chart.js: '=> ^3.1.0'
+      vue: '>= 3'
+    dependencies:
+      '@vue/runtime-core': 3.2.41
+      '@vue/runtime-dom': 3.2.41
+      chart.js: 3.9.1
+      csstype: 3.1.1
+      lodash-es: 4.17.21
+      vue: 3.2.41
+    dev: false
+
+  /vue-chartjs/4.1.2_chart.js@3.9.1+vue@3.2.41:
+    resolution: {integrity: sha512-QSggYjeFv/L4jFSBQpX8NzrAvX0B+Ha6nDgxkTG8tEXxYOOTwKI4phRLe+B4f+REnkmg7hgPY24R0cixZJyXBg==}
+    peerDependencies:
+      chart.js: ^3.7.0
+      vue: ^3.0.0-0 || ^2.6.0
+    dependencies:
+      chart.js: 3.9.1
+      vue: 3.2.41
+    dev: false
+
   /vue-eslint-parser/9.1.0_eslint@8.26.0:
     resolution: {integrity: sha512-NGn/iQy8/Wb7RrRa4aRkokyCZfOUWk19OP5HP6JEozQFX5AoS/t+Z0ZN7FY4LlmWc4FNI922V7cvX28zctN8dQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
@@ -1668,6 +1713,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-lodash/2.1.2_vue@3.2.41:
+    resolution: {integrity: sha512-6QsNC7/XjrK4xKxFhh6Ppvcrfm0uAeR/lFsySsMgfEFUWkvRztcAIS3MsqAI4bBnAaLo9ou+8tUfJ8d+yrljQg==}
+    peerDependencies:
+      vue: '>= 2.0.0'
+    dependencies:
+      vue: 3.2.41
+    dev: false
 
   /vue-router/4.1.6_vue@3.2.41:
     resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}

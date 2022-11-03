@@ -2,6 +2,8 @@
 import axios from "axios";
 import DataTitle from "../components/DataTitle.vue";
 import CardCases from "../components/CardCases.vue";
+import TableCases from "../components/TableCases.vue";
+import ChartCases from "../components/ChartCases.vue";
 </script>
 
 <template>
@@ -13,13 +15,15 @@ import CardCases from "../components/CardCases.vue";
       :recovered="recovered"
       :deaths="deaths"
     />
+    <TableCases />
+    <ChartCases />
   </div>
 </template>
 
 <script>
 export default {
   name: "HomeView",
-  components: { DataTitle, CardCases },
+  components: { DataTitle, CardCases, TableCases, ChartCases },
   data() {
     return {
       delay: 1000,
