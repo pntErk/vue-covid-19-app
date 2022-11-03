@@ -1,8 +1,8 @@
 <template lang="">
   <div>
-    <div style="width: 400px">
+    <div class="">
         
-       
+       <h1>Chart</h1>
       </div>
   </div>
 </template>
