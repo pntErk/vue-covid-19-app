@@ -20,7 +20,7 @@
         separator=","
       />
     </p>
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg bg-white">
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2">
       <table class="w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
@@ -31,60 +31,50 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="bg-white border-b">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
-            >
-              Apple MacBook Pro 17"
-            </th>
-            <td class="py-4 px-6">Sliver</td>
-            <td class="py-4 px-6">Laptop</td>
-            <td class="py-4 px-6">$2999</td>
-          </tr>
-          <tr class="bg-gray-50 border-b">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
-            >
-              Microsoft Surface Pro
-            </th>
-            <td class="py-4 px-6">White</td>
-            <td class="py-4 px-6">Laptop PC</td>
-            <td class="py-4 px-6">$1999</td>
-          </tr>
-          <tr class="bg-white border-b">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
-            >
-              Magic Mouse 2
-            </th>
-            <td class="py-4 px-6">Black</td>
-            <td class="py-4 px-6">Accessories</td>
-            <td class="py-4 px-6">$99</td>
-          </tr>
-          <tr class="bg-gray-50 border-b">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
-            >
-              Google Pixel Phone
-            </th>
-            <td class="py-4 px-6">Gray</td>
-            <td class="py-4 px-6">Phone</td>
-            <td class="py-4 px-6">$799</td>
-          </tr>
-          <tr class="bg-white border-b">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
-            >
-              Apple Watch 5
-            </th>
-            <td class="py-4 px-6">Red</td>
-            <td class="py-4 px-6">Wearables</td>
-            <td class="py-4 px-6">$999</td>
+          <tr v-for="country in countries" :key="country.countryInfo._id">
+            <td class="py-3 px-6">
+              <div class="flex space-x-5 text">
+                <div>
+                  <img
+                    :src="country.countryInfo.flag"
+                    :alt="country.countryInfo.iso2"
+                    class="object-contain h-10 w-12"
+                  />
+                </div>
+
+                <p class="mt-2">
+                  {{ country.country }}
+                </p>
+              </div>
+            </td>
+
+            <td class="py-3 px-6">
+              <vue3-autocounter
+                ref="counter"
+                :startAmount="0"
+                :endAmount="country.cases"
+                :duration="1"
+                separator=","
+              />
+            </td>
+            <td class="py-3 px-6">
+              <vue3-autocounter
+                ref="counter"
+                :startAmount="0"
+                :endAmount="country.recovered"
+                :duration="1"
+                separator=","
+              />
+            </td>
+            <td class="py-3 px-6">
+              <vue3-autocounter
+                ref="counter"
+                :startAmount="0"
+                :endAmount="country.deaths"
+                :duration="1"
+                separator=","
+              />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -96,7 +86,7 @@ import Vue3autocounter from "vue3-autocounter";
 export default {
   name: "TableCases",
   components: { "vue3-autocounter": Vue3autocounter },
-  props: ["population", "affectedCountries"],
+  props: ["population", "affectedCountries", "countries"],
 };
 </script>
 <style></style>

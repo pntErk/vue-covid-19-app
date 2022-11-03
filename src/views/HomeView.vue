@@ -15,7 +15,14 @@ import ChartCases from "../components/ChartCases.vue";
       :recovered="recovered"
       :deaths="deaths"
     />
-    <TableCases :population="population" :affectedCountries="affectedCountries"/>
+    <div class="bg-white mx-10 shadow-lg p-3">
+      <p class="py-2 text-xl font-sans font-bold">Affected Countries</p>
+      <TableCases
+        :population="population"
+        :affectedCountries="affectedCountries"
+        :countries="countries"
+      />
+    </div>
     <ChartCases />
   </div>
 </template>
@@ -35,7 +42,7 @@ export default {
         prefix: "",
         suffix: "",
       },
-      data: {},
+      countries: [],
       totalcases: 0,
       active: 0,
       critical: 0,
@@ -57,9 +64,9 @@ export default {
         this.population = response.data.population;
         this.affectedCountries = response.data.affectedCountries;
       });
-    // axios
-    //   .get("https://disease.sh/v3/covid-19/countries")
-    //   .then((response) => (this.data = response.data));
+    axios.get("https://disease.sh/v3/covid-19/countries").then((response) => {
+      this.countries = response.data;
+    });
   },
 };
 </script>
