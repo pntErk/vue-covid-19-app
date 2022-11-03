@@ -6,7 +6,7 @@ import TableCases from "../components/TableCases.vue";
 import ChartCases from "../components/ChartCases.vue";
 </script>
 
-<template>
+<template class="bg-gray">
   <div class="home">
     <DataTitle :totalcases="totalcases" />
     <CardCases
@@ -15,7 +15,7 @@ import ChartCases from "../components/ChartCases.vue";
       :recovered="recovered"
       :deaths="deaths"
     />
-    <div class="bg-white mx-10 shadow-lg p-3">
+    <div class="bg-white mx-10 shadow-lg p-3 rounded-xl">
       <p class="py-2 text-xl font-sans font-bold">Affected Countries</p>
       <TableCases
         :population="population"
