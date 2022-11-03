@@ -7,7 +7,12 @@ import CardCases from "../components/CardCases.vue";
 <template>
   <div class="home">
     <DataTitle :totalcases="totalcases" />
-    <CardCases :active="active" :critical="critical" :recovered="recovered" :deaths="deaths" />
+    <CardCases
+      :active="active"
+      :critical="critical"
+      :recovered="recovered"
+      :deaths="deaths"
+    />
   </div>
 </template>
 
@@ -26,8 +31,9 @@ export default {
         prefix: "",
         suffix: "",
       },
+      data: {},
       totalcases: 0,
-      active: 1,
+      active: 0,
       critical: 0,
       recovered: 0,
       deaths: 0,
@@ -36,7 +42,13 @@ export default {
   mounted() {
     axios
       .get("https://disease.sh/v3/covid-19/all?yesterday=true&allowNull=true")
-      .then((response) => (this.totalcases = response.data.cases));
+      .then((response) => {
+        this.totalcases = response.data.cases;
+        this.active = response.data.active;
+        this.critical = response.data.critical;
+        this.recovered = response.data.recovered;
+        this.deaths = response.data.deaths;
+      });
   },
 };
 </script>
