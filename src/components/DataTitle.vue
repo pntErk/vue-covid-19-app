@@ -1,6 +1,5 @@
 <template>
   <div class="text-center">
-    <!-- <h2 class="text-3xl font-bold">{{ totalcases }}</h2> -->
     <h2 class="text-3xl font-bold">
       <vue3-autocounter
         ref="counter"
@@ -15,7 +14,6 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
 import Vue3autocounter from "vue3-autocounter";
 export default {
   name: "DataTitle",
