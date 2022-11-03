@@ -23,7 +23,9 @@ import ChartCases from "../components/ChartCases.vue";
         :countries="countries"
       />
     </div>
-    <ChartCases />
+
+    <div class="bg-white mx-10 shadow-lg my-10 rounded-xl">
+    <ChartCases /></div>
   </div>
 </template>
 
@@ -64,7 +66,7 @@ export default {
         this.population = response.data.population;
         this.affectedCountries = response.data.affectedCountries;
       });
-    axios.get("https://disease.sh/v3/covid-19/countries").then((response) => {
+    axios.get("https://disease.sh/v3/covid-19/countries?sort=cases").then((response) => {
       this.countries = response.data;
     });
   },
