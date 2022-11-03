@@ -6,14 +6,30 @@
     <div class="rounded overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Active</div>
-        <p class="text-gray-700 text-base">0</p>
+        <p class="text-gray-700 text-base">
+          <vue3-autocounter
+            ref="counter"
+            :startAmount="0"
+            :endAmount="active"
+            :duration="1"
+            separator=","
+          />
+        </p>
       </div>
     </div>
     <!--Card 2-->
     <div class="rounded overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Critical</div>
-        <p class="text-gray-700 text-base">0</p>
+        <p class="text-gray-700 text-base">
+          <vue3-autocounter
+            ref="counter"
+            :startAmount="0"
+            :endAmount="critical"
+            :duration="1"
+            separator=","
+          />
+        </p>
       </div>
     </div>
 
@@ -21,7 +37,15 @@
     <div class="rounded overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Recovered</div>
-        <p class="text-gray-700 text-base">1,000,000</p>
+        <p class="text-gray-700 text-base">
+          <vue3-autocounter
+            ref="counter"
+            :startAmount="0"
+            :endAmount="recovered"
+            :duration="1"
+            separator=","
+          />
+        </p>
       </div>
     </div>
 
@@ -29,7 +53,15 @@
     <div class="rounded overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">Deaths</div>
-        <p class="text-gray-700 text-base">0</p>
+        <p class="text-gray-700 text-base">
+          <vue3-autocounter
+            ref="counter"
+            :startAmount="0"
+            :endAmount="deaths"
+            :duration="1"
+            separator=","
+          />
+        </p>
       </div>
     </div>
   </div>
@@ -39,6 +71,7 @@ import Vue3autocounter from "vue3-autocounter";
 export default {
   name: "CardCases",
   components: { "vue3-autocounter": Vue3autocounter },
+  props: ["active", "critical", "deaths", "recovered"],
 };
 </script>
 <style lang=""></style>
