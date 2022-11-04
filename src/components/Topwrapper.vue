@@ -17,7 +17,7 @@
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="#" class="flex items-center">
-        <i class="fa fa-viruses " />
+        <i class="fa fa-viruses text-white" />
         <span
           class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
           >Covid-19 Dashboard</span

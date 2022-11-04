@@ -1,15 +1,111 @@
-<template lang="">
-  <div>
-    <div style="width: 400px">
-        
-       
-      </div>
+<template>
+  <div class="container">
+    <!-- <apexchart
+    ref="chart"
+    width="100%"
+    type="area"
+    :options="options"
+    :series="series"
+  ></apexchart> -->
+    <apexchart
+      ref="chart"
+      type="area"
+      width="100%"
+      height="350"
+      :options="options"
+      :series="series"
+    ></apexchart>
   </div>
 </template>
-<script lang="ts">
 
+<script>
+import VueApexCharts from "vue3-apexcharts";
 export default {
   name: "ChartCases",
+  components: { apexchart: VueApexCharts },
+  props: ["chartData"],
+  data() {
+    return {
+      dailyCases: [],
+      options: {
+        chart: {
+          id: "daily-cases",
+        },
+        xaxis: {},
+      },
+      series: [],
+    };
+  },
+  watch: {
+    chartData(val) {
+      const casesdate = Object.getOwnPropertyNames(val.cases);
+      const casestotal = Object.values(val.cases);
+      const deathstotal = Object.values(val.deaths);
+      const recoveredtotal = Object.values(val.recovered);
+      this.$refs.chart.updateOptions({
+        chart: {
+          type: "area",
+          stacked: false,
+          height: 350,
+          zoom: {
+            type: "x",
+            enabled: true,
+            autoScaleYaxis: true,
+          },
+        },
+        xaxis: {
+          type: "datetime",
+          categories: casesdate,
+        },
+        toolbar: {
+          autoSelected: "zoom",
+        },
+        markers: {
+          size: 0,
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        colors: ["#00a4db", "#ff2323", "#229977"],
+        legend: {
+          fontSize: "14px",
+          fontFamily: "Space Mono",
+          labels: {
+            colors: "#A8B2CD"
+          }
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.5,
+            opacityTo: 0,
+            stops: [0, 90, 100],
+          },
+        },
+      });
+      const series = [
+        {
+          name: "Confirmed",
+          data: casestotal,
+        },
+        {
+          name: "Deaths",
+          data: deathstotal,
+        },
+        {
+          name: "Recovered",
+          data: recoveredtotal,
+        },
+      ];
+      this.$refs.chart.updateSeries(series);
+    },
+  },
 };
 </script>
-<style lang=""></style>
+
+<style></style>
