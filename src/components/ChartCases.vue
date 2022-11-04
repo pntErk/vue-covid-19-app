@@ -1,12 +1,5 @@
 <template>
   <div class="container">
-    <!-- <apexchart
-    ref="chart"
-    width="100%"
-    type="area"
-    :options="options"
-    :series="series"
-  ></apexchart> -->
     <apexchart
       ref="chart"
       type="area"
@@ -107,5 +100,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

@@ -1,6 +1,5 @@
 <script setup>
 import axios from "axios";
-import moment from "moment";
 import DataTitle from "../components/DataTitle.vue";
 import CardCases from "../components/CardCases.vue";
 import TableCases from "../components/TableCases.vue";
