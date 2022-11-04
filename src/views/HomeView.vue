@@ -26,7 +26,12 @@ import ChartCases from "../components/ChartCases.vue";
     </div>
 
     <div class="bg-white mx-10 shadow-lg my-10 rounded-xl">
-      <ChartCases />
+      <div class="row mt-5">
+        <div class="col">
+          <!-- <ChartCases :chartData="chartData"  /> -->
+          <ChartCases :chartData="chartData" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +86,7 @@ export default {
     this.chartData = await axios.get(
       "https://disease.sh/v3/covid-19/historical/all?lastdays=30"
     );
+    this.chartData = this.chartData.data
   },
 };
 </script>

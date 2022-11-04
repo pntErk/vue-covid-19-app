@@ -1,66 +1,110 @@
 <template>
-  <Bar
-    :chart-options="chartOptions"
-    :chart-data="chartData"
-    :chart-id="chartId"
-    :dataset-id-key="datasetIdKey"
-    :plugins="plugins"
-    :css-classes="cssClasses"
-    :styles="styles"
-    :width="width"
-    :height="height"
-  />
+  <div class="container">
+    <!-- <apexchart
+    ref="chart"
+    width="100%"
+    type="area"
+    :options="options"
+    :series="series"
+  ></apexchart> -->
+    <apexchart
+      ref="chart"
+      type="area"
+      width="100%"
+      height="350"
+      :options="options"
+      :series="series"
+    ></apexchart>
+  </div>
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+import VueApexCharts from "vue3-apexcharts";
 export default {
   name: "ChartCases",
-  components: { Bar },
-  props: {
-    chartId: {
-      type: String,
-      default: 'bar-chart'
-    },
-    datasetIdKey: {
-      type: String,
-      default: 'label'
-    },
-    width: {
-      type: Number,
-      default: 400
-    },
-    height: {
-      type: Number,
-      default: 400
-    },
-    cssClasses: {
-      default: '',
-      type: String
-    },
-    styles: {
-      type: Object,
-      default: () => {}
-    },
-    plugins: {
-      type: Object,
-      default: () => {}
-    }
-  },
+  components: { apexchart: VueApexCharts },
+  props: ["chartData"],
   data() {
     return {
-      chartData: {
-        labels: [ 'January', 'February', 'March' ],
-        datasets: [ { data: [40, 20, 12] } ]
+      dailyCases: [],
+      options: {
+        chart: {
+          id: "daily-cases",
+        },
+        xaxis: {},
       },
-      chartOptions: {
-        responsive: true
-      }
-    }
-  }
+      series: [],
+    };
+  },
+  watch: {
+    chartData(val) {
+      const casesdate = Object.getOwnPropertyNames(val.cases);
+      const casestotal = Object.values(val.cases);
+      const deathstotal = Object.values(val.deaths);
+      const recoveredtotal = Object.values(val.recovered);
+      this.$refs.chart.updateOptions({
+        chart: {
+          type: "area",
+          stacked: false,
+          height: 350,
+          zoom: {
+            type: "x",
+            enabled: true,
+            autoScaleYaxis: true,
+          },
+        },
+        xaxis: {
+          type: "datetime",
+          categories: casesdate,
+        },
+        toolbar: {
+          autoSelected: "zoom",
+        },
+        markers: {
+          size: 0,
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        colors: ["#00a4db", "#ff2323", "#229977"],
+        legend: {
+          fontSize: "14px",
+          fontFamily: "Space Mono",
+          labels: {
+            colors: "#A8B2CD"
+          }
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.5,
+            opacityTo: 0,
+            stops: [0, 90, 100],
+          },
+        },
+      });
+      const series = [
+        {
+          name: "Confirmed",
+          data: casestotal,
+        },
+        {
+          name: "Deaths",
+          data: deathstotal,
+        },
+        {
+          name: "Recovered",
+          data: recoveredtotal,
+        },
+      ];
+      this.$refs.chart.updateSeries(series);
+    },
+  },
 };
 </script>
 
