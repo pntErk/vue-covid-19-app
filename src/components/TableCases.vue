@@ -20,8 +20,8 @@
         separator=","
       />
     </p>
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg py-2 h-96">
-      <table class="w-full text-sm text-left text-gray-500">
+    <div class="overflow-x-auto relative shadow-md rounded-lg py-2 h-96">
+      <table class="sm:w-full text-sm text-left text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
             <th scope="col" class="py-3 px-6">Country</th>
