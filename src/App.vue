@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import Topwrapper from "./components/Topwrapper.vue";
-import CardCases from "./components/CardCases.vue";
 </script>
 
 <template>
@@ -14,8 +13,6 @@ import CardCases from "./components/CardCases.vue";
 <script>
 export default {
   name: "app",
-  components: { Topwrapper, CardCases },
+  components: { Topwrapper },
 };
 </script>
-
-<style scoped></style>

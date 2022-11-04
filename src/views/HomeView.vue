@@ -1,6 +1,5 @@
 <script setup>
 import axios from "axios";
-import moment from "moment";
 import DataTitle from "../components/DataTitle.vue";
 import CardCases from "../components/CardCases.vue";
 import TableCases from "../components/TableCases.vue";
@@ -16,7 +15,7 @@ import ChartCases from "../components/ChartCases.vue";
       :recovered="recovered"
       :deaths="deaths"
     />
-    <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl">
+    <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg sm:p-3 rounded-xl">
       <p class="py-2 text-xl font-sans font-bold">Affected Countries</p>
       <TableCases
         :population="population"
@@ -25,10 +24,9 @@ import ChartCases from "../components/ChartCases.vue";
       />
     </div>
 
-    <div class="bg-white mx-10 shadow-lg my-10 rounded-xl">
+    <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl mt-7">
       <div class="row mt-5">
         <div class="col">
-          <!-- <ChartCases :chartData="chartData"  /> -->
           <ChartCases :chartData="chartData" />
         </div>
       </div>
