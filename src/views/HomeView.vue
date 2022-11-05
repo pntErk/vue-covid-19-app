@@ -5,7 +5,6 @@ import CardCases from "../components/CardCases.vue";
 import TableCases from "../components/TableCases.vue";
 import ChartCases from "../components/ChartCases.vue";
 </script>
-
 <template class="bg-gray">
   <div class="home py-10">
     <DataTitle :totalcases="totalcases" />
@@ -16,7 +15,14 @@ import ChartCases from "../components/ChartCases.vue";
       :deaths="deaths"
     />
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg sm:p-3 rounded-xl">
-      <p class="py-2 text-xl font-sans font-bold">Affected Countries</p>
+      <div class="grid grid-cols-2">
+        <p class="py-2 sm:text-base md:text-xl font-sans font-bold">Affected Countries</p>
+        <div class="group">
+          
+        </div>
+        <!-- <div class="mx-60 w-96 pt-3 pr-2">
+        </div> -->
+      </div>
       <TableCases
         :population="population"
         :affectedCountries="affectedCountries"
@@ -25,8 +31,10 @@ import ChartCases from "../components/ChartCases.vue";
     </div>
 
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl mt-7">
-      <div class="row mt-5">
+      <div class="row">
         <div class="col">
+          <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl ">Records in 30 Days</p>
+          <p class="mb-3 sm:text-sm md:lg:text-base">(Covid-19 data sourced from Johns Hopkins University, updated every 10 minutes)</p>
           <ChartCases :chartData="chartData" />
         </div>
       </div>
@@ -49,8 +57,8 @@ export default {
         prefix: "",
         suffix: "",
       },
-      all: [],
       countries: [],
+      chartData: [],
       totalcases: 0,
       active: 0,
       critical: 0,
@@ -58,33 +66,41 @@ export default {
       deaths: 0,
       population: 0,
       affectedCountries: 0,
-      chartData: [],
+      
     };
   },
-  mounted() {
-    axios
-      .get("https://disease.sh/v3/covid-19/all?yesterday=true&allowNull=true")
-      .then((response) => {
-        this.totalcases = response.data.cases;
-        this.active = response.data.active;
-        this.critical = response.data.critical;
-        this.recovered = response.data.recovered;
-        this.deaths = response.data.deaths;
-        this.population = response.data.population;
-        this.affectedCountries = response.data.affectedCountries;
-      });
-    axios
-      .get("https://disease.sh/v3/covid-19/countries?sort=cases")
-      .then((response) => {
-        this.countries = response.data;
-      });
+  created() {
+    this.getAllCases();
+    this.getCountries();
+    this.getChartData(30);
   },
-
-  async created() {
-    this.chartData = await axios.get(
-      "https://disease.sh/v3/covid-19/historical/all?lastdays=30"
-    );
-    this.chartData = this.chartData.data
+  methods: {
+    async getChartData(day) {
+      this.chartData = await axios.get(
+        "https://disease.sh/v3/covid-19/historical/all?lastdays=" + day + ""
+      );
+      this.chartData = this.chartData.data;
+    },
+    getAllCases() {
+      axios
+        .get("https://disease.sh/v3/covid-19/all?yesterday=false&allowNull=true")
+        .then((response) => {
+          this.totalcases = response.data.cases;
+          this.active = response.data.active;
+          this.critical = response.data.critical;
+          this.recovered = response.data.recovered;
+          this.deaths = response.data.deaths;
+          this.population = response.data.population;
+          this.affectedCountries = response.data.affectedCountries;
+        });
+    },
+    getCountries() {
+      axios
+        .get("https://disease.sh/v3/covid-19/countries?sort=cases")
+        .then((response) => {
+          this.countries = response.data;
+        });
+    },
   },
 };
 </script>
