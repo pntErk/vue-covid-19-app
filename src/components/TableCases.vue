@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <p >
+  <div >
+    <p class="w-1/2 sm:text-sm md:text-base">
       Population:
       <vue3-autocounter
         ref="counter"
@@ -9,8 +9,8 @@
         :duration="1"
         separator=","
       />
-    </p>
-    <p class="pb-3">
+    </p> 
+    <p class="pb-3 w-1/2 sm:text-sm md:text-base">
       Affected Countries:
       <vue3-autocounter
         ref="counter"
@@ -20,25 +20,25 @@
         separator=","
       />
     </p>
-    <div class="overflow-x-auto relative shadow-md rounded-lg py-2 h-96">
-      <table class="sm:w-full text-sm text-left text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+    <div class="overflow-auto flex-grow flex-col rounded-lg h-96">
+      <table class="relative w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase ">
           <tr>
-            <th scope="col" class="py-3 px-6">Country</th>
-            <th scope="col" class="py-3 px-6">Total Cases</th>
-            <th scope="col" class="py-3 px-6">Recovered</th>
-            <th scope="col" class="py-3 px-6">Deaths</th>
+            <th scope="col" class="sticky top-0 py-3 px-6 bg-gray-50">Country</th>
+            <th scope="col" class="sticky top-0 py-3 px-6 bg-gray-50">Total Cases</th>
+            <th scope="col" class="sticky top-0 py-3 px-6 bg-gray-50">Recovered</th>
+            <th scope="col" class="sticky top-0 py-3 px-6 bg-gray-50">Deaths</th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="country in countries" :key="country.iso2">
+        <tbody clas="divide-y">
+          <tr v-for="country in countries" :key="country.iso2" class="border-b">
             <td class="py-3 px-6">
               <div class="flex space-x-5 text">
                 <div>
                   <img
                     :src="country.countryInfo.flag"
                     :alt="country.countryInfo.iso2"
-                    class="object-contain h-10 w-12"
+                    class="sm:object-scale-down md:object-contain sm:h-6 sm:w-10 md:h-10 md:w-12"
                   />
                 </div>
 

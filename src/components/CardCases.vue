@@ -3,7 +3,7 @@
     class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5"
   >
     <!--Card 1-->
-    <div class="card-one ">
+    <div class="card-one">
       <div class="rounded-xl overflow-hidden shadow-lg bg-white">
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">Active</div>
