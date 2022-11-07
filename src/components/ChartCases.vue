@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+    <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl">
+      Records in 30 Days
+    </p>
+    <div class="grid grid-cols-2 gap-2">
+      <p class="mb-3 sm:text-sm md:lg:text-base sm:-mt-3">
+        (Covid-19 data sourced from Johns Hopkins University, updated every 10
+        minutes)
+      </p>
+    </div>
     <apexchart
       ref="chart"
       type="area"
@@ -63,8 +72,8 @@ export default {
           fontSize: "14px",
           fontFamily: "Space Mono",
           labels: {
-            colors: "#A8B2CD"
-          }
+            colors: "#A8B2CD",
+          },
         },
         stroke: {
           curve: "smooth",

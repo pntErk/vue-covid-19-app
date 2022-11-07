@@ -24,20 +24,11 @@ import ChartCases from "../components/ChartCases.vue";
 
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl mt-7">
       <div class="row">
-        <div class="col">
-          <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl">
-            Records in 30 Days
-          </p>
-
-          <p class="mb-3 sm:text-sm md:lg:text-base sm:-mt-3">
-            (Covid-19 data sourced from Johns Hopkins University, updated every
-            10 minutes)
-          </p>
           <ChartCases :chartData="chartData" />
         </div>
       </div>
     </div>
-  </div>
+  
 </template>
 
 <script>
