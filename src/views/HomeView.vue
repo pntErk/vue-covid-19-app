@@ -4,7 +4,6 @@ import DataTitle from "../components/DataTitle.vue";
 import CardCases from "../components/CardCases.vue";
 import TableCases from "../components/TableCases.vue";
 import ChartCases from "../components/ChartCases.vue";
-import TimelineTable from "../components/TimelineTable.vue";
 </script>
 <template class="bg-gray">
   <div class="home py-10">
@@ -30,7 +29,7 @@ import TimelineTable from "../components/TimelineTable.vue";
             Records in 30 Days
           </p>
 
-          <p class="mb-3 sm:text-sm md:lg:text-base">
+          <p class="mb-3 sm:text-sm md:lg:text-base sm:-mt-3">
             (Covid-19 data sourced from Johns Hopkins University, updated every
             10 minutes)
           </p>
@@ -44,7 +43,7 @@ import TimelineTable from "../components/TimelineTable.vue";
 <script>
 export default {
   name: "HomeView",
-  components: { DataTitle, CardCases, TableCases, ChartCases, TimelineTable },
+  components: { DataTitle, CardCases, TableCases, ChartCases },
   data() {
     return {
       delay: 1000,

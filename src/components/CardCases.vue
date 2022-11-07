@@ -6,8 +6,8 @@
     <div class="card-one">
       <div class="rounded-xl overflow-hidden shadow-lg bg-white">
         <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">Active</div>
-          <p class="text-gray-700 text-base">
+          <div class="text-xl font-bold mb-1">Active</div>
+          <p class="bg-gray-50 rounded-xl text-2xl text-center p-3">
             <vue3-autocounter
               ref="counter"
               :startAmount="0"
@@ -22,8 +22,8 @@
     <!--Card 2-->
     <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Critical</div>
-        <p class="text-gray-700 text-base">
+        <div class="text-xl font-bold mb-1">Critical</div>
+        <p class="bg-gray-50 rounded-xl text-2xl text-center p-3">
           <vue3-autocounter
             ref="counter"
             :startAmount="0"
@@ -38,8 +38,8 @@
     <!--Card 3-->
     <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Recovered</div>
-        <p class="text-gray-700 text-base">
+        <div class="text-xl font-bold mb-1">Recovered</div>
+        <p class="bg-gray-50 rounded-xl text-2xl text-center p-3">
           <vue3-autocounter
             ref="counter"
             :startAmount="0"
@@ -54,8 +54,8 @@
     <!--Card 4-->
     <div class="rounded-xl overflow-hidden shadow-lg bg-white">
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Deaths</div>
-        <p class="text-gray-700 text-base">
+        <div class="text-xl font-bold mb-1">Deaths</div>
+        <p class="bg-gray-50 rounded-xl text-2xl text-center p-3">
           <vue3-autocounter
             ref="counter"
             :startAmount="0"
