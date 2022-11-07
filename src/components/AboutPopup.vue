@@ -2,7 +2,7 @@
   <button
     @click="open = true"
     type="button"
-    class="text-white hover:bg-blue-700 hover:text-blue-g focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
+    class=" text-white hover:bg-blue-700 hover:text-blue-g focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
