@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h2 class="text-3xl font-bold">
+    <h2 class="text-5xl font-bold">
       <vue3-autocounter
         ref="counter"
         :startAmount="0"

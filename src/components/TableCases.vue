@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div class="grid grid-cols-2">
-      <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl">
-        Affected Countries
-      </p>
-    </div>
+    <p class="font-sans font-bold sm:text-base md:lg:text-xl">
+      Affected Countries
+    </p>
+    <p class="sm:-mt-1 sm:my-3 text-slate-100 sm:text-sm">
+      (COVID-19 data sourced from Worldometers, updated every 10 minutes)
+    </p>
+
     <p class="w-1/2 sm:text-sm md:text-base">
       Population:
       <vue3-autocounter
