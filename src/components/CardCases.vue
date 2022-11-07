@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5"
+    class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5 sm:-mx-20 md:mx-1"
   >
     <!--Card 1-->
     <div class="card-one">

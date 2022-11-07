@@ -19,7 +19,6 @@ export default {
   props: ["chartData"],
   data() {
     return {
-      dailyCases: [],
       options: {
         chart: {
           id: "daily-cases",

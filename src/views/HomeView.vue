@@ -4,6 +4,7 @@ import DataTitle from "../components/DataTitle.vue";
 import CardCases from "../components/CardCases.vue";
 import TableCases from "../components/TableCases.vue";
 import ChartCases from "../components/ChartCases.vue";
+import TimelineTable from "../components/TimelineTable.vue";
 </script>
 <template class="bg-gray">
   <div class="home py-10">
@@ -15,14 +16,6 @@ import ChartCases from "../components/ChartCases.vue";
       :deaths="deaths"
     />
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg sm:p-3 rounded-xl">
-      <div class="grid grid-cols-2">
-        <p class="py-2 sm:text-base md:text-xl font-sans font-bold">Affected Countries</p>
-        <div class="group">
-          
-        </div>
-        <!-- <div class="mx-60 w-96 pt-3 pr-2">
-        </div> -->
-      </div>
       <TableCases
         :population="population"
         :affectedCountries="affectedCountries"
@@ -33,8 +26,14 @@ import ChartCases from "../components/ChartCases.vue";
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl mt-7">
       <div class="row">
         <div class="col">
-          <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl ">Records in 30 Days</p>
-          <p class="mb-3 sm:text-sm md:lg:text-base">(Covid-19 data sourced from Johns Hopkins University, updated every 10 minutes)</p>
+          <p class="py-2 font-sans font-bold sm:text-base md:lg:text-xl">
+            Records in 30 Days
+          </p>
+
+          <p class="mb-3 sm:text-sm md:lg:text-base">
+            (Covid-19 data sourced from Johns Hopkins University, updated every
+            10 minutes)
+          </p>
           <ChartCases :chartData="chartData" />
         </div>
       </div>
@@ -45,7 +44,7 @@ import ChartCases from "../components/ChartCases.vue";
 <script>
 export default {
   name: "HomeView",
-  components: { DataTitle, CardCases, TableCases, ChartCases },
+  components: { DataTitle, CardCases, TableCases, ChartCases, TimelineTable },
   data() {
     return {
       delay: 1000,
@@ -66,7 +65,6 @@ export default {
       deaths: 0,
       population: 0,
       affectedCountries: 0,
-      
     };
   },
   created() {
@@ -81,9 +79,11 @@ export default {
       );
       this.chartData = this.chartData.data;
     },
-    getAllCases() {
-      axios
-        .get("https://disease.sh/v3/covid-19/all?yesterday=false&allowNull=true")
+    async getAllCases() {
+      await axios
+        .get(
+          "https://disease.sh/v3/covid-19/all?yesterday=false&allowNull=true"
+        )
         .then((response) => {
           this.totalcases = response.data.cases;
           this.active = response.data.active;
@@ -94,8 +94,8 @@ export default {
           this.affectedCountries = response.data.affectedCountries;
         });
     },
-    getCountries() {
-      axios
+    async getCountries() {
+      await axios
         .get("https://disease.sh/v3/covid-19/countries?sort=cases")
         .then((response) => {
           this.countries = response.data;
