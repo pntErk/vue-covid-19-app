@@ -1,6 +1,7 @@
 # vue-covid-19-app
 
-developing by Vue 3 in Vite.
+A Web covid-19 dashboard with visualization of graph, table, built with VueJS.
+
 
 ## Recommended IDE Setup
 
