@@ -1,7 +1,7 @@
 <template>
-  <div class=" bg-gray-900 border-gray-700">
+  <div class="bg-gray-900 border-gray-700">
     <nav
-      class="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center flex-wrap justify-between "
+      class="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center flex-wrap justify-between"
     >
       <div class="flex items-center justify-between">
         <router-link
@@ -28,7 +28,7 @@
           </button>
         </div>
       </div>
-        <!--  -->
+      <!--  -->
       <ul
         :class="showMenu ? 'flex' : 'hidden'"
         class="flex-col px-7 py-2 p-3 mt-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
@@ -41,11 +41,8 @@
             >Home</a
           >
         </li>
-        <li class="pt-2  ">
-          
-            <AboutPopup />
-
-          
+        <li class="pt-2">
+          <AboutPopup />
         </li>
       </ul>
     </nav>

@@ -77,4 +77,3 @@ export default {
   props: ["active", "critical", "deaths", "recovered"],
 };
 </script>
-

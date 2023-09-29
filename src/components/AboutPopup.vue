@@ -2,7 +2,7 @@
   <button
     @click="open = true"
     type="button"
-    class=" text-white hover:bg-blue-700 hover:text-blue-g focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
+    class="text-white hover:bg-blue-700 hover:text-blue-g focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -64,21 +64,58 @@
               <div class="modal-body relative p-4">
                 <p class="mb-3">
                   API Used:
-                  <a class="no-underline hover:underline" :href="diseaseapi" target="_blank">disease.sh</a>
+                  <a
+                    class="no-underline hover:underline"
+                    :href="diseaseapi"
+                    target="_blank"
+                    >disease.sh</a
+                  >
                 </p>
                 <p class="mb-3">
                   Data Source:
-                  <a class="no-underline hover:underline" :href="jhu" target="_blank">Johns Hopkins University</a>,
-                  and
-                  <a class="no-underline hover:underline" :href="worldometer" target="_blank">Worldometers</a>
+                  <a
+                    class="no-underline hover:underline"
+                    :href="jhu"
+                    target="_blank"
+                    >Johns Hopkins University</a
+                  >, and
+                  <a
+                    class="no-underline hover:underline"
+                    :href="worldometer"
+                    target="_blank"
+                    >Worldometers</a
+                  >
                 </p>
                 <p class="mb-3">
-                  Built with <a class="no-underline hover:underline" :href="vuejs" target="_blank">Vite + Vue 3</a>,
-                  <a class="no-underline hover:underline" :href="tailwind" target="_blank">Tailwind CSS</a>,
-                  <a class="no-underline hover:underline" :href="chart" target="_blank">Chart</a>, and
-                  <a class="no-underline hover:underline" :href="countup" target="_blank">Count Up</a>
+                  Built with
+                  <a
+                    class="no-underline hover:underline"
+                    :href="vuejs"
+                    target="_blank"
+                    >Vite + Vue 3</a
+                  >,
+                  <a
+                    class="no-underline hover:underline"
+                    :href="tailwind"
+                    target="_blank"
+                    >Tailwind CSS</a
+                  >,
+                  <a
+                    class="no-underline hover:underline"
+                    :href="chart"
+                    target="_blank"
+                    >Chart</a
+                  >, and
+                  <a
+                    class="no-underline hover:underline"
+                    :href="countup"
+                    target="_blank"
+                    >Count Up</a
+                  >
                 </p>
-                <p class="text-center font-bold pt-5">Made by Phongpanot Phumphua</p>
+                <p class="text-center font-bold pt-5">
+                  Made by Phongpanot Phumphua
+                </p>
               </div>
             </div>
           </div>
@@ -89,7 +126,6 @@
 </template>
 
 <script>
-
 export default {
   name: "AboutPopup",
   data() {
@@ -105,6 +141,5 @@ export default {
       github: "https://github.com/Erk-dev/vue-covid-19-app",
     };
   },
-
 };
 </script>

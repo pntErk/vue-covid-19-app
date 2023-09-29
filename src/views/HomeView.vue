@@ -24,11 +24,10 @@ import ChartCases from "../components/ChartCases.vue";
 
     <div class="bg-white sm:-mx-10 md:mx-10 shadow-lg md:p-3 rounded-xl mt-7">
       <div class="row">
-          <ChartCases :chartData="chartData" />
-        </div>
+        <ChartCases :chartData="chartData" />
       </div>
     </div>
-  
+  </div>
 </template>
 
 <script>

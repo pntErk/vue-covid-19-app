@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: "2rem",
     },
     screens: {
       sm: "320px",
@@ -24,8 +24,8 @@ module.exports = {
       },
     },
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
+      transparent: "transparent",
+      current: "currentColor",
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
